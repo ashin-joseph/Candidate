@@ -1,0 +1,109 @@
+.candidatecard{
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: rgba(166, 191, 255, 0.2) 0px 8px 24px;
+}
+
+.candidatecard-topmenu{
+    height: 20px;
+}
+
+.cidbadge-status{
+    background-color: #2be27d;
+    font: #242424;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 1px 15px;
+    border-radius: 5px;
+}
+
+.candidatecard-profile{
+    margin-bottom: 2px;
+    height: 60px;
+}
+
+.candidatecard-profile-name{
+    color: #38349F;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.candidatecard-profile-id{
+    color: #616161;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.candidatecard-roles{
+    overflow: hidden;
+    margin-bottom: 12px;
+    height: 60px;
+}
+
+.candidatecard-details{
+    padding: 2px;
+    height: 60px;
+}
+
+.candidatecard-details-icon{
+    height: 15px;
+    margin-right: 10px;
+}
+
+
+.candidatecard-details-text{
+    font-size: 12px;
+    padding-left: 0px;
+    padding-top: 5px;
+
+}
+
+.candidatecard-skills{
+    overflow: hidden;
+    margin-bottom: 15px;
+    height: 70px;
+}
+
+.cidbadge-side{
+    font: #242424;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 0px 10px 0px 1px;
+    border-right: 1px solid black;
+    margin-right: 5px;
+    margin-top: 5px;
+    }
+
+.cidbadge-yel1ow{
+    background-color: #ffce00;
+    font: #242424;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    }
+
+.candidatecard-summary{
+    background-color: #F5F5FF;
+    border-color: #DDDBFF;
+    overflow: hidden;
+    }
+
+.candidatecard-summary-text {
+    color: #1E1E1E;
+    font-size: 12px;
+    margin: 10px;
+    height: 94px;
+    overflow: hidden;
+}
+
+.candidatecard-button {
+    border-color: #DDDBFF;
+    margin-top: 10px;
+}
+
+.x{
+    border: 0px solid red;
+}

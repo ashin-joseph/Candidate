@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Icon_material-playlist-add" data-name="Icon material-playlist-add" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.57 20">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #555;
+      }
+    </style>
+  </defs>
+  <path id="Icon_material-playlist-add-2" data-name="Icon material-playlist-add-2" class="cls-1" d="m17.14,5.71H0v2.86h17.14v-2.86Zm0-5.71H0v2.86h17.14V0Zm5.71,11.43v-5.72h-2.86v5.71h-5.71v2.86h5.71v5.72h2.86v-5.71h5.71v-2.86h-5.71ZM0,14.29h11.43v-2.86H0v2.86Z"/>
+</svg>
