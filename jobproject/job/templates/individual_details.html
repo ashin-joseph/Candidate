@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'i_styles.css' %}">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+<!--            <div class="col-md-2 sidebar bg-light p-3">-->
+<!--                <div class="profile-pic text-center mb-3">-->
+<!--                    <img src="path/to/profile-pic.jpg" alt="Profile Picture" class="rounded-circle" width="100">-->
+<!--                    <h4>{{ user.username }}</h4>-->
+<!--                </div>-->
+<!--                <nav>-->
+<!--                    <ul class="nav flex-column">-->
+<!--                        <li class="nav-item"><a href="#" class="nav-link">My Account</a></li>-->
+<!--                        <li class="nav-item"><a href="#" class="nav-link">Profile</a></li>-->
+<!--                        <li class="nav-item"><a href="#" class="nav-link">Jobs</a></li>-->
+<!--                        <li class="nav-item"><a href="#" class="nav-link">Calendar</a></li>-->
+<!--                        <li class="nav-item"><a href="#" class="nav-link">Message</a></li>-->
+<!--                    </ul>-->
+<!--                </nav>-->
+<!--            </div>-->
+            <div class="col-md-10 main-content p-4">
+                <header class="d-flex justify-content-between align-items-center mb-4">
+                    <div class="user-info">
+                        <h1>{{ user.username }}</h1>
+                        <p>{{ user.city }}, {{ user.country }}</p>
+                    </div>
+                    <div class="status">
+                        <span class="badge badge-success">{{ user.status }}</span>
+                    </div>
+                </header>
+                <div class="summary mb-4">
+                    <p>{{ user.experience_summary }}</p>
+                    <div class="details d-flex">
+                        <span class="badge badge-secondary mr-2">{{ user.experience_years }} Years</span>
+                        <span class="badge badge-secondary mr-2">{{ user.salary }} LPA</span>
+                        <span class="badge badge-secondary mr-2">{{ user.work_mode }}</span>
+                        <span class="badge badge-secondary">{{ user.work_type }}</span>
+                    </div>
+                </div>
+                <div class="roles mb-4">
+                    <h2>Roles</h2>
+                    <ul class="list-inline">
+                        {% for r in roles %}
+                            <li class="list-inline-item badge badge-warning">{{ r.title }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="skills mb-4">
+                    <h2>Skills and Tools</h2>
+                    <div class="skill-section mb-3">
+                        <h3>Hard Skills</h3>
+                        <ul class="list-inline">
+                            {% for h in hardskills %}
+                                <li class="list-inline-item badge badge-primary">{{ h.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="skill-section mb-3">
+                        <h3>Soft Skills</h3>
+                        <ul class="list-inline">
+                            {% for s in softskills %}
+                                <li class="list-inline-item badge badge-info">{{ s.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="skill-section">
+                        <h3>Tools and Technology</h3>
+                        <ul class="list-inline">
+                            {% for t in tools %}
+                                <li class="list-inline-item badge badge-dark">{{ t.name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="latest-role mb-4">
+                    <h2>Latest Role</h2>
+                    <p>{{ user.current_role }}<br>Jan 2022 - Present</p>
+                </div>
+                <div class="education-history">
+                    <h2>Education History</h2>
+                    {% for e in education %}
+                        <p>{{ e.degree }}<br>{{ e.university }}<span> | {{ e.completion_year }}</span></p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

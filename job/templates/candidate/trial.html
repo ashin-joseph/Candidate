@@ -1,10 +1,163 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConnectingIDS</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/candidateandjobcardsstyle.css' %}">
 </head>
-<body>
+<body style="background-color: rgb(245, 251, 255);">
+
+<br>
+<div class="container">
+    <div class="row ">
+        <div class="col-4 ">
+            {% for i in user_data %}
+                <div class="col mb-2">
+                    <div class="candidatecard p-3">
+                        <div class="candidatecard-topmenu d-flex justify-content-end x">
+                            <div class="cidbadge-status">{{i.status}}</div>
+                        </div>
+                        <div class="candidatecard-profile d-flex flex-column align-items-start x">
+                            <div class="candidatecard-profile-name">{{i.first_name}} </div>
+                            <div class="candidatecard-profile-id">{{i.candidate_id}} </div>
+                        </div>
+                        <div class="candidatecard-roles d-flex align-content-start flex-wrap x">
+                            <span class="cidbadge-role">{{i.role_formatted|safe}} </span>
+                        </div>
+                        <div class="candidatecard-details d-flex align-content-start x">
+                            <div class="x"><img class="candidatecard-details-icon" src="{% static 'images/Icons-01.svg' %}"></div>
+                            <div class="col-2 candidatecard-details-text"> {{i.years_of_experience}} </div>
+                            <div class="x"><img class="candidatecard-details-icon" src="{% static 'images/Icons-02.svg' %}"></div>
+                            <div class="col  candidatecard-details-text"> {{i.current_location}} </div>
+                            <div class="x"><img class="candidatecard-details-icon" src="{% static 'images/Icons-03.svg' %}"></div>
+                            <div class="col candidatecard-details-text"> {{i.work_mode}}, {{i.work_type}} </div>
+                        </div>
+                        <div class="candidatecard-skills d-flex align-content-start flex-wrap x">
+                            <span class="cidbadge-yellow">{{i.tags_formatted|safe}}</span>
+                        </div>
+                        <div class="candidatecard-summary">
+                            <div class="candidatecard-summary-text">{{i.experience_summary |safe }}</div>
+                        </div>
+                        <div class="candidatecard-button">
+                            <a href=""><button class="btn btn-primary btn-block" type="button">View Profile</button></a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-8 candidatecard" id="detailcontent">
+            <!-- Dynamic content will be injected here -->
+        </div>
+    </div>
+    <div class="candidatecard-area" style="background-color: rgb(245, 251, 000);"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script>
+    function insertDynamicContent(data) {
+        const detailContent = document.getElementById('detailcontent');
+        detailContent.innerHTML = '';  // Clear previous content
+
+        data.forEach(candidate => {
+            const candidateCard = document.createElement('div');
+            candidateCard.classList.add('container', 'candidatecard', 'py-3');
+
+            candidateCard.innerHTML = `
+                <div>
+                    <h1 class="col-12 profile-name">${sots.first_name}</h1>
+                    <h4 class="col-12 profile-id">${candidate.candidate_id}</h4>
+                </div>
+                <div class="col profile-roles d-flex align-content-start flex-wrap">
+                    <span class="profilebdg-roles">${candidate.roles_formatted}</span>
+                </div>
+                <div>
+                    <h4 class="col-12 mt-4">Summary</h4>
+                    <p class="col-12">${candidate.display_summary}</p>
+                </div>
+                <div class="col-12 d-flex justify-content-center profile-preference x">
+                    <div class="col-2"></div>
+                    <div class="x"><img class="profile-details-icon" src="{% static 'images/Icons-01.svg' %}"></div>
+                    <div class="col-2 profiled-details-text">${candidate.years_of_experience}</div>
+                    <div class="x"><img class="profile-details-icon" src="{% static 'images/Icons-02.svg' %}"></div>
+                    <div class="col profile-details-text">${candidate.current_location}</div>
+                    <div class="x"><img class="profile-details-icon" src="{% static 'images/Icons-03.svg' %}"></div>
+                    <div class="col profile-details-text">${candidate.work_type}</div>
+                    <div class="col-2"></div>
+                </div>
+                <h4 class="col-12 mt-4">Skills</h4>
+                <div class="profile-skills d-flex">
+                    <div class="col-md-4">
+                        <h6>Hard Skills</h6>
+                        <div class="d-flex align-content-start flex-wrap">
+                            <span class="cidbadge-yellow">${candidate.hard_skills_formatted}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h6>Soft Skills</h6>
+                        <div class="d-flex align-content-start flex-wrap">
+                            <span class="cidbadge-yellow">${candidate.soft_skills_formatted}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h6>Tools and Technology</h6>
+                        <div class="d-flex align-content-start flex-wrap">
+                            <span class="cidbadge-yellow">${candidate.tools_formatted}</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="col-12 mt-4">Experience Summary</h4>
+                    <p class="col-12">${candidate.experience_summary}</p>
+                </div>
+                <div>
+                    <h4 class="col-12 mt-4">Education</h4>
+                    <p class="col-12">${candidate.educational_summary}</p>
+                </div>
+                <div>
+                    <h4 class="col-12 mt-4">Certification</h4>
+                    <p class="col-12">${candidate.certifications}</p>
+                </div>
+                <div>
+                    <h4 class="col-12 mt-4">Note</h4>
+                    <p class="col-12">${candidate.additional_note}</p>
+                </div>
+            `;
+
+            detailContent.appendChild(candidateCard);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const dynamicData = [
+            {% for i in sots %}
+                {
+                    first_name: "{{i.first_name}}",
+                    candidate_id: "{{i.candidate_id}}",
+                    roles_formatted: "{{i.roles_formatted|safe}}",
+                    display_summary: "{{i.display_summary}}",
+                    years_of_experience: "{{i.years_of_experience}}",
+                    current_location: "{{i.current_location}}",
+                    work_type: "{{i.work_type}}",
+                    hard_skills_formatted: "{{i.hard_skills_formatted|safe}}",
+                    soft_skills_formatted: "{{i.soft_skills_formatted|safe}}",
+                    tools_formatted: "{{i.tools_formatted|safe}}",
+                     experience_summary: "{{i.experience_summary}}",
+                    educational_summary: "{{i.educational_summary}}",
+                    certifications: "{{i.certifications}}",
+                    additional_note: "{{i.additional_note}}"
+                },
+            {% endfor %}
+        ];
+
+        insertDynamicContent(dynamicData);
+    });
+</script>
 
 </body>
 </html>

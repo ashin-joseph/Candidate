@@ -8,6 +8,5 @@ admin.site.register(HardSkill)
 admin.site.register(SoftSkill)
 admin.site.register(ToolAndTechnology)
 admin.site.register(Education)
-admin.site.register(SotsCandidate)
 
 # Register your models here.

@@ -75,30 +75,5 @@ class Education(models.Model):
     def __str__(self):
         return f"{self.degree} - {self.university}"
 
-class SotsCandidate(models.Model):
-    STATUS_CHOICES = [
-        ('active', 'Active'),
-        ('inactive', 'Inactive'),
-        ('terminated', 'Terminated'),
-    ]
-    first_name = models.CharField(max_length=100)  # Store first names up to 100 characters
-    candidate_id = models.CharField(max_length=50, unique=True)
-    roles = models.TextField()# Unique ID for each candidate
-    status = models.CharField(max_length=10, null=True, blank=True,choices=STATUS_CHOICES)# active/inactive for each candidate
-    display_summary = models.TextField(max_length=250)  # Short summary of 250 characters
-    years_of_experience = models.PositiveIntegerField()  # Non-negative integer for years of experience
-    current_location = models.CharField(max_length=100)  # Store current location up to 100 characters
-    work_mode = models.CharField(max_length=50)  # Type of work (e.g., full-time, part-time)
-    work_type = models.CharField(max_length=50)  # Additional type field
-    hard_skills = models.TextField()  # Store hard skills in a long text field
-    soft_skills = models.TextField()  # Store soft skills in a long text field
-    tools = models.TextField()  # Tools the candidate is familiar with
-    tag = models.TextField()  # Tools the candidate is familiar with
-    experience_summary = models.TextField()  # Detailed experience summary
-    educational_summary = models.TextField()  # Educational background summary
-    certifications = models.TextField()  # List of certifications
-    additional_note = models.TextField(blank=True, null=True)  # Optional additional notes
 
-    def __str__(self):
-        return f'{self.first_name} ({self.candidate_id})'
 

@@ -1,0 +1,64 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.sidebar {
+    background-color: #fff;
+    border-right: 1px solid #dee2e6;
+    min-height: 100vh;
+}
+
+.profile-pic img {
+    border: 2px solid #007bff;
+    padding: 5px;
+}
+
+.profile-pic h4 {
+    margin-top: 10px;
+}
+
+.nav-link {
+    color: #007bff;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.main-content {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.header .user-info h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.status .badge {
+    font-size: 1rem;
+}
+
+.summary p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.summary .details .badge {
+    font-size: 1rem;
+}
+
+.roles h2, .skills h2, .latest-role h2, .education-history h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.list-inline-item {
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+.latest-role p, .education-history p {
+    font-size: 1.1rem;
+}

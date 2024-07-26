@@ -29,24 +29,27 @@
 }
 
 .candidatecard-profile-id{
-    color: #616161;
-    font-size: 15px;
+    color: #606060;
+    font-size: 12px;
     font-weight: 600;
 }
 
 .candidatecard-roles{
     overflow: hidden;
     margin-bottom: 12px;
-    height: 60px;
+    height: 68px;
+
 }
 
 .candidatecard-details{
     padding: 2px;
     height: 60px;
+    margin-top: 20px;
+    border-top: 1px solid black;
 }
 
 .candidatecard-details-icon{
-    height: 15px;
+    height: 18px;
     margin-right: 10px;
 }
 
@@ -54,7 +57,7 @@
 .candidatecard-details-text{
     font-size: 12px;
     padding-left: 0px;
-    padding-top: 5px;
+    padding-top: 2px;
 
 }
 
@@ -64,26 +67,33 @@
     height: 70px;
 }
 
-.cidbadge-side{
-    font: #242424;
+.cidbadge-role li{
+    list-style-type: none;
+    display: inline-block;
+    font: #245024;
     font-size: 13px;
     font-weight: 600;
     padding: 0px 10px 0px 1px;
-    border-right: 1px solid black;
     margin-right: 5px;
     margin-top: 5px;
+    background-color: #f7f7f7;
+    padding: 5px;
     }
 
-.cidbadge-yel1ow{
-    background-color: #ffce00;
+.cidbadge-yellow li{
+    list-style-type: none;
+    display: inline-block;
+    background-color: #ffe887;
     font: #242424;
     font-size: 13px;
-    font-weight: 600;
-    padding: 5px 10px;
+    font-weight: 500;
+    padding: 5px 8px;
     border-radius: 5px;
     margin-right: 5px;
     margin-top: 5px;
     }
+
+
 
 .candidatecard-summary{
     background-color: #F5F5FF;
@@ -103,6 +113,68 @@
     border-color: #DDDBFF;
     margin-top: 10px;
 }
+
+
+
+
+
+
+.profile-name{
+    color: #38349F;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.profile-id{
+    color: #606060;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.profile-roles{
+    margin-bottom: 15px;
+
+}
+
+.profile-skills{
+    margin-bottom: 20px;
+
+}
+
+.profile-preference{
+    background-color: #efefff;
+    padding: 20px 20px;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: #38349F;
+
+}
+
+.profile-details-icon{
+    height: 25px;
+    margin-right: 10px;
+}
+
+.profile-details-text{
+    padding-left: 0px;
+    padding-top: 2px;
+
+}
+
+.profilebdg-roles li{
+    list-style-type: none;
+    display: inline-block;
+    font: #242424;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 0px 10px 0px 1px;
+    margin-right: 5px;
+    margin-top: 5px;
+    background-color: #f7f7f7;
+    padding: 5px;
+    }
+
+
 
 .x{
     border: 0px solid red;
