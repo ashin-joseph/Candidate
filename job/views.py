@@ -17,6 +17,10 @@ def jobCards(request):
 
     context = {'user_details': user_details}
     return render(request, "candidate/copy0.html", context)
+def jobProfiles(request):
+    user = User.objects.all()
+    context = {'user': user,}
+    return render(request, "candidate/copy1.html", context)
 def jobIndividual(request, user_id):
     user = get_object_or_404(User, id=user_id)
     roles = Role.objects.filter(user=user)
@@ -25,7 +29,6 @@ def jobIndividual(request, user_id):
     softskills = SoftSkill.objects.filter(user=user)
     tools = ToolAndTechnology.objects.filter(user=user)
     education = Education.objects.filter(user=user)
-
     context = {
         'user': user,
         'roles': roles,
@@ -35,7 +38,6 @@ def jobIndividual(request, user_id):
         'tools': tools,
         'education': education,
     }
-
     return render(request, "candidate/copy.html", context)
 
 def Index(request):
@@ -144,6 +146,14 @@ def candidateProfile(request, role_id):
         else:
             w.educational_summary = ""
 
+    for x in sotscan:
+        if x.experience_summary:
+            experience_summary = [skill.strip() for skill in x.experience_summary.split(',')]
+            formatted_exp = ''.join(f'<li>{skill}</li>' for skill in experience_summary)
+            x.experience_summary = formatted_exp
+        else:
+            x.experience_summary = ""
+
     for e in sotscan:
         if e.certifications:
             certi = [skill.strip() for skill in e.certifications.split(',')]
@@ -159,6 +169,7 @@ def candidateProfile(request, role_id):
         'tools_formatted': l.tools_formatted,
         'roles_formatted': q.roles_formatted,
         'educational_summary': w.educational_summary,
+        'experience_summary': x.experience_summary,
         'certifications': e.certifications,
     }
 
